@@ -1,0 +1,31 @@
+import discord
+from discord.ext import commands
+import os
+import requests
+
+# A variável intents armazena as permissões do bot
+intents = discord.Intents.default()
+# Ativar a permissão para ler o conteúdo das mensagens
+intents.message_content = True
+# Criar um bot e passar as permissões
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'Fizemos login como {client.user}')
+
+@bot.command('water')
+async def water(ctx):
+    await ctx.send("Garanta que todas as torneiras e chuveiros estejam fechados antes de sair de casa ou de dormir.")
+
+
+@bot.command('sacola')
+async def sacola(ctx):
+    await ctx.send("Sempre lembre de usar sacolas retornáveis para preservar o meio ambiente.")
+
+
+@bot.command('lixo')
+async def lixo(ctx):
+    await ctx.send('Para evitar o acúmulo de lixo você deve priorizar o consumo de forma consciente.')
+
+client.run("SEU TOKEN DO BOT DEVE FICAR AQUI!")
